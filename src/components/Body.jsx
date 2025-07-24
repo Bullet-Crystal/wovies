@@ -5,14 +5,11 @@ function VideoPlayer({ selected }) {
 
   return (
     <div className="relative w-fit mx-auto">
-      {/* Loading Spinner */}
       {loading && (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-40 rounded-lg">
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/65 rounded-lg">
           <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
         </div>
       )}
-
-      {/* Video Element */}
       <video
         className="rounded-lg shadow-lg"
         controls
