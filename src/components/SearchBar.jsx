@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function SearchBar({selected, setSelected, servers, setServers}) {
+function SearchBar({selected, setSelected, servers, setServers, host, setHost}) {
   const [inputValue, setInputValue] = useState('');
   const [movies, setMovies] = useState([]);
   const [collapsed, setCollapsed] = useState(true);
@@ -8,7 +8,7 @@ function SearchBar({selected, setSelected, servers, setServers}) {
   async function fetchMovies() {
     let search = inputValue.trim();
     if (search) {
-      const response = await fetch(`http://localhost:5000/search?q=${search}`);
+      const response = await fetch(`${host}/search?q=${search}`);
       if (response.ok) {
         const data = await response.json();
         setMovies(data);
@@ -19,7 +19,7 @@ function SearchBar({selected, setSelected, servers, setServers}) {
     setInputValue('');
     setCollapsed(true);
     try{
-      const response = await fetch(`http://localhost:5000/get-episode?url=${encodeURIComponent(url)}`);
+      const response = await fetch(`${host}/get-episode?url=${encodeURIComponent(url)}`);
       if (response.ok) {
         const videoUrls = await response.json();
         setServers(videoUrls);
