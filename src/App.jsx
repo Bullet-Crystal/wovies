@@ -8,7 +8,7 @@ import './App.css'
 function App() {
   const [selected, setSelected] = useState({'link':null});
   const [servers, setServers] = useState([]);
-  const [host, setHost] = useState('http://localhost:5000');
+  const [host, setHost] = useState('https://proud-spiders-strive.loca.lt');
   return (
     <div className="flex flex-col min-h-screen">
       <SearchBar selected={selected} setSelected = {setSelected} servers={servers} setServers={setServers} host={host} setHost={setHost}/>

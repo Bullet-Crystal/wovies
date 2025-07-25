@@ -8,7 +8,14 @@ function SearchBar({selected, setSelected, servers, setServers, host, setHost}) 
   async function fetchMovies() {
     let search = inputValue.trim();
     if (search) {
-      const response = await fetch(`${host}/search?q=${search}`);
+      const response = await fetch(`${host}/search?q=${search}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'bypass-tunnel-reminder': 'true'
+      }
+    });
+
       if (response.ok) {
         const data = await response.json();
         setMovies(data);
@@ -19,7 +26,13 @@ function SearchBar({selected, setSelected, servers, setServers, host, setHost}) 
     setInputValue('');
     setCollapsed(true);
     try{
-      const response = await fetch(`${host}/get-episode?url=${encodeURIComponent(url)}`);
+      const response = await fetch(`${host}/get-episode?url=${encodeURIComponent(url)}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'bypass-tunnel-reminder': 'true'
+      }
+    });
       if (response.ok) {
         const videoUrls = await response.json();
         setServers(videoUrls);
