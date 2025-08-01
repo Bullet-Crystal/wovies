@@ -3,16 +3,18 @@ import SearchBar from'./components/SearchBar.jsx'
 import Body from './components/Body.jsx'
 import Footer from './components/Footer.jsx'
 
-import './App.css'
+import './index.css'
 
 function App() {
   const [selected, setSelected] = useState({'link':null});
   const [servers, setServers] = useState([]);
-  const [host, setHost] = useState('https://proud-spiders-strive.loca.lt');
+  const [seasonsLinks, setseasonsLinks] = useState([]);
+  const [series, setSeries] = useState(false);
+  const [host, setHost] = useState('http://192.168.220:5000');
   return (
     <div className="flex flex-col min-h-screen">
-      <SearchBar selected={selected} setSelected = {setSelected} servers={servers} setServers={setServers} host={host} setHost={setHost}/>
-      <Body selected={selected} setSelected = {setSelected} servers={servers} setServers={setServers}/>
+      <SearchBar selected={selected} setSelected = {setSelected} servers={servers} setServers={setServers} host={host} setHost={setHost} series={series} setSeries={setSeries} seasonsLinks={seasonsLinks} setseasonsLinks={setseasonsLinks}/>
+      <Body selected={selected} setSelected = {setSelected} servers={servers} setServers={setServers} host={host} setHost={setHost} series={series} setSeries={setSeries} seasonsLinks={seasonsLinks} setseasonsLinks={setseasonsLinks}/>
       {/* <Footer /> */}
     </div>
   )
